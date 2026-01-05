@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #06b6d4;
+    --color-secondary: #d946ef;
+    --color-dark-bg: #030712;
+    --color-card-bg: rgba(17, 24, 39, 0.7);
+}
+
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-dark-bg);
+    background-image:
+        radial-gradient(circle at 50% -20%, #3b82f633, transparent),
+        radial-gradient(circle at 0% 100%, #d946ef1a, transparent);
+    min-height: 100vh;
+    color: #f3f4f6;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Glassmorphism Utility */
+.glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.neo-blur {
+    position: relative;
+}
+
+.neo-blur::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.neo-blur:hover::before {
+    opacity: 0.5;
+}
